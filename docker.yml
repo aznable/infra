@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  net:
+  infra:
     image: nginxproxy/nginx-proxy
-    container_name: net
+    container_name: infra
     ports:
       - '25:25'
       - '53:53'
