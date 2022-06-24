@@ -22,13 +22,32 @@ services:
       - '11334:11334'
       - '11335:11335'
     volumes:
-      - ./certs:/etc/nginx/certs:ro
-      - ./conf:/etc/nginx/conf.d
-      - ./vhost:/etc/nginx/vhost.d
+      - certs:/etc/nginx/certs:ro
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    network_mode: bridge
+    networks:
+      - aznable
+  acme:
+    image: nginxproxy/acme-companion
+    container_name: acme
+    volumes_from:
+      - infra
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    network_mode: bridge
     networks:
       - aznable
 
 networks:
   aznable:
     name: aznable
+
+volumes:
+  conf:
+  vhost:
+  certs:
+  acme:
