@@ -24,6 +24,7 @@ services:
     volumes:
       - certs:/etc/nginx/certs:ro
       - conf:/etc/nginx/conf.d
+      - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
     network_mode: bridge
@@ -47,7 +48,8 @@ networks:
     name: aznable
 
 volumes:
-  conf:
-  vhost:
-  certs:
   acme:
+  certs:
+  conf:
+  html:
+  vhost:
