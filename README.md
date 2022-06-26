@@ -1,6 +1,6 @@
 # Aznable Infra
 
-An implementation of reverse proxy network using [NGINX proxy](https://github.com/nginx-proxy/nginx-proxy) and [Acme Companion](https://github.com/nginx-proxy/acme-companion).
+An implementation of a reverse proxy network using [NGINX proxy](https://github.com/nginx-proxy/nginx-proxy) and [Acme Companion](https://github.com/nginx-proxy/acme-companion).
 
 ## Installation
 
