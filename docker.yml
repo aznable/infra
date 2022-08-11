@@ -11,10 +11,10 @@ services:
     volumes:
       - certs:/etc/nginx/certs:ro
       - conf:/etc/nginx/conf.d
+      - ./conf/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
       - html:/usr/share/nginx/html
       - vhost:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    network_mode: bridge
     networks:
       - aznable
   acme:
@@ -26,7 +26,6 @@ services:
       - certs:/etc/nginx/certs:rw
       - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    network_mode: bridge
     networks:
       - aznable
 
